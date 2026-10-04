@@ -1,0 +1,22 @@
+node_modules/
+
+# IDE
+.idea/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# BDD generated test files
+/.features-gen/
+
+# Auth storage state
+/.auth/
+
+# Reports
+/reports/
+
+# Env
+.env
