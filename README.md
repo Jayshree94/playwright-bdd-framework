@@ -16,6 +16,7 @@ Feature files describe behaviour in business-readable Gherkin; step definitions 
 - [Environment configuration](#environment-configuration)
 - [Running tests](#running-tests)
 - [Reporting](#reporting)
+  - [Report preview](#report-preview)
 - [Project structure](#project-structure)
 - [Writing a new scenario](#writing-a-new-scenario)
 - [CI/CD](#cicd)
@@ -96,6 +97,26 @@ cat reports/junit/results.xml   # JUnit XML, for CI test-result integrations
 ```
 
 `posttest` regenerates the Allure report automatically after `npm test` finishes.
+
+### Report preview
+
+Screenshots below are from the Allure report (`npm run report:allure`), captured from a full `chromium` + `firefox` run of all 22 scenarios.
+
+**Overview** — pass rate, per-browser suite breakdown, trend:
+
+![Allure overview dashboard](docs/report-screenshots/01-overview-dashboard.png)
+
+**Suites** — scenarios grouped by browser project and feature file:
+
+![Allure suites view](docs/report-screenshots/02-suites.png)
+
+**Behaviors** — every scenario by its Gherkin name, independent of file layout:
+
+![Allure behaviors view](docs/report-screenshots/03-behaviors.png)
+
+**Scenario detail** — tags, severity, duration and source for a single test:
+
+![Allure test case detail](docs/report-screenshots/04-test-case-detail.png)
 
 ## Project structure
 
