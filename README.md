@@ -114,7 +114,7 @@ Screenshots below are from the Allure report (`npm run report:allure`), captured
 
 ![Allure behaviors view](docs/report-screenshots/03-behaviors.png)
 
-**Scenario detail** — tags, severity, duration and source for a single test:
+**Scenario detail** — tags, severity, duration, source, and the executed Given/When/Then steps for a single test:
 
 ![Allure test case detail](docs/report-screenshots/04-test-case-detail.png)
 
