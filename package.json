@@ -19,8 +19,8 @@
     "bdd",
     "allure"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Jayshree94",
+  "license": "MIT",
   "devDependencies": {
     "@cucumber/cucumber": "^11.2.0",
     "@playwright/test": "^1.59.1",

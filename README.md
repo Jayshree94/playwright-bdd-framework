@@ -1,6 +1,7 @@
 # Playwright BDD Framework
 
 [![Playwright BDD Tests](https://github.com/Jayshree94/playwright-bdd-framework/actions/workflows/playwright.yml/badge.svg)](https://github.com/Jayshree94/playwright-bdd-framework/actions/workflows/playwright.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A BDD end-to-end test automation framework built with **Playwright**, **Cucumber** (Gherkin), and **TypeScript**, reporting through **Allure**, Playwright's HTML reporter, and JUnit XML.
 
@@ -19,6 +20,7 @@ Feature files describe behaviour in business-readable Gherkin; step definitions 
 - [Writing a new scenario](#writing-a-new-scenario)
 - [CI/CD](#cicd)
 - [Known limitations](#known-limitations)
+- [License](#license)
 
 ## Tech stack
 
@@ -138,3 +140,7 @@ cat reports/junit/results.xml   # JUnit XML, for CI test-result integrations
 
 - `tests/auth.setup.ts` / Playwright `storageState` is intentionally not used: the target app has no server-side session, so persisting its in-browser mock data across workers would let parallel tests corrupt each other's state instead of isolating it.
 - The loans feature has no real target application and is a placeholder; replace it when a real one is available.
+
+## License
+
+MIT &copy; 2026 [Jayshree94](https://github.com/Jayshree94) &mdash; see [LICENSE](LICENSE) for the full text.
