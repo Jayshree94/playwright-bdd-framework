@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    options {
+        timestamps()
+    }
+
+    parameters {
+        choice(name: 'TEST_ENV', choices: ['qa', 'staging', 'prod'], description: 'Environment to run against (config/environments.ts)')
+    }
+
+    environment {
+        CI = 'true'
+    }
+
+    stages {
+        stage('Install') {
+            steps {
+                sh 'npm ci'
+                sh 'npx playwright install --with-deps chromium firefox'
+            }
+        }
+
+        stage('Generate BDD tests') {
+            steps {
+                sh 'npm run bdd:gen'
+            }
+        }
+
+        stage('Run tests') {
+            steps {
+                sh "TEST_ENV=${params.TEST_ENV} npx playwright test"
+            }
+        }
+    }
+
+    post {
+        always {
+            sh 'npm run report:allure:generate || true'
+            publishHTML(target: [
+                reportDir: 'reports/allure-report',
+                reportFiles: 'index.html',
+                reportName: 'Allure Report',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+            ])
+            junit testResults: 'reports/junit/results.xml', allowEmptyResults: true
+            archiveArtifacts artifacts: 'reports/**', allowEmptyArchive: true
+        }
+    }
+}
